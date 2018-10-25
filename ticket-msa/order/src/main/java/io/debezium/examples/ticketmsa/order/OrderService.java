@@ -38,7 +38,7 @@ public class OrderService {
     @Consumes("application/json")
     public Order addOrder(Order order) {
         order = entityManager.merge(order);
-        kafka.send(topicName, order.getId(), order.toJson());
+        kafka.send(topicName, order.getId(), order.toJson());InvoiceService.java
         return order;
     }
 }
